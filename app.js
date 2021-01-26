@@ -22,11 +22,17 @@ res.render("home",{HOMESTRINGCONTENT:homeStartingContent});
 });
 
 
+app.get("/about",function(req,res){
+  res.render("about",{ABOUTCONTENT:aboutContent})
+})
 
+app.get("/contact",function(req,res){
+  res.render("contact",{CONTACTCONTENT:contactContent});
+})
 
-
-
-
+app.get("/compose",function(req,res){
+  res.render("compose");
+})
 
 
 
