@@ -6,7 +6,9 @@
 
 <%POSTS.forEach(function(post){%>
   <h1><%=post.title%></h1%>>
-  <p><%=post.body%></p>
+
+ <% var url= "/posts/"+post.title %>
+  <p><%=post.body.substring(1,100)%> ... <a href="<%=url%>">Read More</a></p>
 <%});%>
 
 

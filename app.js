@@ -58,7 +58,7 @@ app.post("/compose", function(req, res) {
 
 
 app.get("/posts/:newPost", function(req, res) {
-var index
+
   let postRequested= req.params.newPost;
   postRequested=lodash.lowerCase(postRequested);
 
@@ -66,14 +66,13 @@ var index
     let postTitle = post.title;
     postTitle=lodash.lowerCase(postTitle);
     if (postTitle === postRequested) {
-      console.log(post);
-     index=  posts.indexOf(post);
-    }else{
-      console.log("No match!")
+
+    res.render("post",{title:post.title,body:post.body});
+
     }
 
   });
-res.render("post",{posts:posts,index:index});
+
 });
 
 
