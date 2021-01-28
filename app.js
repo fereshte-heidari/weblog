@@ -58,20 +58,22 @@ app.post("/compose", function(req, res) {
 
 
 app.get("/posts/:newPost", function(req, res) {
-
+var index
+  let postRequested= req.params.newPost;
+  postRequested=lodash.lowerCase(postRequested);
 
   posts.forEach(function(post) {
     let postTitle = post.title;
     postTitle=lodash.lowerCase(postTitle);
-    let postRequested= req.params.newPost;
-    postRequested=lodash.lowerCase(postRequested);
     if (postTitle === postRequested) {
-      console.log("A match is found!");
+      console.log(post);
+     index=  posts.indexOf(post);
     }else{
       console.log("No match!")
     }
-  });
 
+  });
+res.render("post",{posts:posts,index:index});
 });
 
 
